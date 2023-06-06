@@ -1,0 +1,14 @@
+-I./libs/glm
+-I./libs/glfw-3.3.8/include
+-I./libs/glad/include/
+-I./include
+-L/usr/local/lib
+-lglfw3
+-lrt
+-lm
+-ldl
+-lX11
+-lpthread
+-lxcb
+-lXau
+-lXdmcp
