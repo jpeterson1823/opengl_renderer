@@ -45,10 +45,13 @@ Texture2D::Texture2D(const char* path, bool alphaEnabled, unsigned int texUnit) 
 	}
 	// free image data
 	stbi_image_free(data);
+
+    std::cout << "Texture2D Created.\n";
 }
 
 Texture2D::~Texture2D() {
 	glDeleteTextures(1, &id);
+    std::cout << "Texture2D Destroied.\n";
 }
 
 unsigned int Texture2D::getID() {

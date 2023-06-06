@@ -19,13 +19,21 @@ void gl_setup();
 void gl_cleanup();
 
 
+/* Note on active memory leak
+ * Valgrind states:
+ *      "still reachable: 265,019 bytes in 3,189 blocks"
+ * when main only has gl_setup(), gl_cleanup(), and return 0;
+ * Not sure what's causing it, but I can't fix it.
+ */
 int main() {
+    std::cout << "Setting up...\n";
     gl_setup();
+
+    ResourceManager::Initialize();
+    Renderer::Initialize(g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
 
     World world;
     GameObject* obj = world.createObject();
-
-    Renderer::Initialize(g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
 
     // gameloop
     while (!glfwWindowShouldClose(g_window)) {
@@ -41,10 +49,17 @@ int main() {
         glfwPollEvents();
         glfwSwapBuffers(g_window);
     }
+    
+    std::cout << "\nExit signal received. Cleaning up...\n\n";
 
+    Renderer::Destroy();
+    ResourceManager::DestroyResources();
     gl_cleanup();
+
     return 0;
 }
+
+
 
 
 void gl_setup() {

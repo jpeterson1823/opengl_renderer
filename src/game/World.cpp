@@ -1,11 +1,15 @@
 #include "game/World.hpp"
 #include "render/ResourceManager.hpp"
+#include <iostream>
 
-World::World() {}
+World::World() {
+    std::cout << "World Created.\n";
+}
 
 World::~World() {
     for (GameObject* g : gameObjects)
         delete g;
+    std::cout << "World Destroied.\n";
 }
 
 GameObject* World::createObject() {
@@ -16,8 +20,5 @@ GameObject* World::createObject() {
     GameObject* obj = new GameObject(id, 0, 0, 3);
     this->gameObjects.push_back(obj);
 
-    ResourceManager::GenerateShader("/home/invisa/Documents/code_stuffs/opengl_snake/graphics/shaders/obj.vert", "/home/invisa/Documents/code_stuffs/opengl_snake/graphics/shaders/obj.frag");
-
-    // return its id
     return obj;
 }
