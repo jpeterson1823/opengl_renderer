@@ -9,12 +9,12 @@
 #include "render/ResourceManager.hpp"
 
 // Window information
-const unsigned int g_WINDOW_WIDTH = 500;
-const unsigned int g_WINDOW_HEIGHT = 500;
+const unsigned int g_WINDOW_WIDTH = 1000;
+const unsigned int g_WINDOW_HEIGHT = 1000;
 static GLFWwindow* g_window;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processWindowInput();
+void processWindowInput(World& world, float deltaTime);
 void gl_setup();
 void gl_cleanup();
 
@@ -35,9 +35,16 @@ int main() {
     World world;
     GameObject* obj = world.createObject();
 
+
     // gameloop
+    float currentTime, lastTime, deltaTime = 0.0f;
     while (!glfwWindowShouldClose(g_window)) {
-        processWindowInput();
+        // time delta controls
+        currentTime = glfwGetTime();
+        deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        processWindowInput(world, deltaTime);
 
         // clear screen
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -107,8 +114,28 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-void processWindowInput() {
+void processWindowInput(World& world, float deltaTime) {
+    GameObject* obj = world.getObject(0);
+    float objSpeed = 20.0f * deltaTime;
+
     if (glfwGetKey(g_window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(g_window, true);
+    }
+    else {
+        glm::vec3 direction = glm::vec3(0.0f, 0.0f, 0.0f);
+        if (glfwGetKey(g_window, GLFW_KEY_W) == GLFW_PRESS) {
+            direction.y = 1.0f;
+        }
+        if (glfwGetKey(g_window, GLFW_KEY_S) == GLFW_PRESS) {
+            direction.y = -1.0f;
+        }
+        if (glfwGetKey(g_window, GLFW_KEY_D) == GLFW_PRESS) {
+            direction.x = 1.0f;
+        }
+        if (glfwGetKey(g_window, GLFW_KEY_A) == GLFW_PRESS) {
+            direction.x = -1.0f;
+        }
+
+        obj->move(direction * objSpeed);
     }
 }

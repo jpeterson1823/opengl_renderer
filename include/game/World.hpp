@@ -11,4 +11,5 @@ public:
     ~World();
 
     GameObject* createObject();
+    GameObject* getObject(unsigned int id);
 };

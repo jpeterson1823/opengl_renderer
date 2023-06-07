@@ -22,3 +22,10 @@ GameObject* World::createObject() {
 
     return obj;
 }
+
+GameObject* World::getObject(unsigned int id) {
+    if (id < gameObjects.size()) {
+        return gameObjects[id];
+    }
+    return nullptr;
+}
