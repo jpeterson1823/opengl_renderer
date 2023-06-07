@@ -7,11 +7,12 @@ private:
     float ypos;
     float hitRadius;
     unsigned int id;
+    unsigned int shaderId;
 
     glm::mat4 modelMat;
 
 public:
-    GameObject(int id, float xpos, float ypos, float hitRadius);
+    GameObject(int id, float xpos, float ypos, float hitRadius, unsigned int shaderId);
     ~GameObject();
 
     void  setX(float val);

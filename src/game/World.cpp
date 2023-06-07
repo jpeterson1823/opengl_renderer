@@ -17,7 +17,7 @@ GameObject* World::createObject() {
     unsigned int id = this->gameObjects.size();
 
     // create obj and add it to gameObjects
-    GameObject* obj = new GameObject(id, 0, 0, 3);
+    GameObject* obj = new GameObject(id, 0, 0, 3, 0);
     this->gameObjects.push_back(obj);
 
     return obj;

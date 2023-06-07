@@ -104,6 +104,7 @@ Shader::~Shader() {
 
 void Shader::use() {
 	glUseProgram(this->id);
+    glBindVertexArray(this->vao);
 }
 
 void Shader::setBool(const std::string& name, bool value) const {

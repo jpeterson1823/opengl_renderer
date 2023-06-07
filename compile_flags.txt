@@ -1,3 +1,4 @@
+-std=c++17
 -I./libs/glm
 -I./libs/glfw-3.3.8/include
 -I./libs/glad/include/

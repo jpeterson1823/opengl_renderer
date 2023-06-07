@@ -34,6 +34,5 @@ void Renderer::RenderGameObject(GameObject* gobj) {
     s->use();
     s->setVec3("color", color);
     s->setMVP(gobj->getModelMat(), camera->view, projection);
-    s->bindVertexArray();
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }

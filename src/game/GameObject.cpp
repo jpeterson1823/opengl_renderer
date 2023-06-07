@@ -3,7 +3,7 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 
-GameObject::GameObject(int id, float xpos, float ypos, float hitRadius) : id(id), xpos(xpos), ypos(ypos), hitRadius(hitRadius) {
+GameObject::GameObject(int id, float xpos, float ypos, float hitRadius, unsigned int shaderId) : id(id), xpos(xpos), ypos(ypos), hitRadius(hitRadius), shaderId(shaderId) {
     modelMat = glm::mat4(1.0f);
     ResourceManager::GenerateDefaultShader();
     std::cout << "GameObject Created.\n";

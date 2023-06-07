@@ -20,9 +20,13 @@ void ResourceManager::Initialize() {
     textureAtlas = new TextureAtlas();
 
     // initialize consts
-    resDir = fs::current_path().string();
+    resDir = fs::current_path().string() + "/res";
     shaderDir = resDir + "/shaders";
     textureDir = resDir + "/textures";
+
+    std::cout << "resDir=" << resDir << std::endl;
+    std::cout << "shaderDir=" << shaderDir << std::endl;
+    std::cout << "textureDir=" << textureDir << std::endl;
 
     std::cout << "ResourceManager initialized.\n";
 }
@@ -46,9 +50,8 @@ void ResourceManager::DestroyResources() {
 unsigned int ResourceManager::GenerateDefaultShader() {
     // generate default shader path strings
     std::string vpath, fpath;
-    vpath = shaderDir;
-    vpath.append("/default.vert");
-    fpath.append("/default.frag");
+    vpath = shaderDir + "/default.vert";
+    fpath = shaderDir + "/default.frag";
 
     // load shader and return its id
     return ResourceManager::GenerateShader(vpath.c_str(), fpath.c_str());
