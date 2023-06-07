@@ -1,13 +1,29 @@
 #include "render/ResourceManager.hpp"
 #include <iostream>
+#include <bits/stdc++.h>
+
+#include <filesystem>
+namespace fs = std::filesystem;
 
 // run default constructor for static vectors
 ShaderAtlas* ResourceManager::shaderAtlas;
 TextureAtlas* ResourceManager::textureAtlas;
 
+// run default constructor for static strings
+std::string ResourceManager::resDir;
+std::string ResourceManager::shaderDir;
+std::string ResourceManager::textureDir;
+
 void ResourceManager::Initialize() {
+    // initialize resource atlases
     shaderAtlas = new ShaderAtlas();
     textureAtlas = new TextureAtlas();
+
+    // initialize consts
+    resDir = fs::current_path().string();
+    shaderDir = resDir + "/shaders";
+    textureDir = resDir + "/textures";
+
     std::cout << "ResourceManager initialized.\n";
 }
 
@@ -28,7 +44,14 @@ void ResourceManager::DestroyResources() {
 
 // Generate the default shader
 unsigned int ResourceManager::GenerateDefaultShader() {
-    return ResourceManager::GenerateShader("/home/invisa/GitHub/opengl_renderer/graphics/shaders/default.vert", "/home/invisa/GitHub/opengl_renderer/graphics/shaders/default.frag");
+    // generate default shader path strings
+    std::string vpath, fpath;
+    vpath = shaderDir;
+    vpath.append("/default.vert");
+    fpath.append("/default.frag");
+
+    // load shader and return its id
+    return ResourceManager::GenerateShader(vpath.c_str(), fpath.c_str());
 }
 
 // Generates new shader and returns its gameId

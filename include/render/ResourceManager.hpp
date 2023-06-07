@@ -17,6 +17,12 @@ private:
     static ShaderAtlas* shaderAtlas;
     static TextureAtlas* textureAtlas;
 
+    static std::string resDir;
+    static std::string shaderDir;
+    static std::string textureDir;
+    static std::string defaultShaderPath;
+    static std::string defaultTexturePath;
+
 public:
     static void Initialize();
     static void DestroyResources();

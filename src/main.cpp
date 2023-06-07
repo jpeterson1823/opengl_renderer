@@ -9,8 +9,8 @@
 #include "render/ResourceManager.hpp"
 
 // Window information
-const uint g_WINDOW_WIDTH = 500;
-const uint g_WINDOW_HEIGHT = 500;
+const unsigned int g_WINDOW_WIDTH = 500;
+const unsigned int g_WINDOW_HEIGHT = 500;
 static GLFWwindow* g_window;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
