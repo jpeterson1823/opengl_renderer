@@ -29,3 +29,14 @@ GameObject* World::getObject(unsigned int id) {
     }
     return nullptr;
 }
+
+Apple* World::spawnApple(float xpos, float ypos) {
+    // get next available ID
+    unsigned int id = this->gameObjects.size();
+
+    // create apple and add it to gameObjects
+    Apple* apple = new Apple(id, xpos, ypos);
+    this->gameObjects.push_back(apple);
+
+    return apple;
+}

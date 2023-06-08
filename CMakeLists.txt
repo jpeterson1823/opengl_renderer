@@ -19,6 +19,7 @@ add_executable(snake_gl
     src/render/ResourceManager.cpp
     src/render/Shader.cpp
     src/render/Texture2D.cpp
+    src/game/Apple.cpp
 
     src/render/shapes/Line.cpp
 )

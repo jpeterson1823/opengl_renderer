@@ -7,10 +7,10 @@ GameObject::GameObject(int id, float xpos, float ypos, float hitRadius, unsigned
     this->id = id;
     this->shaderId = shaderId;
     this->hitRadius = hitRadius;
+    this->color = glm::vec3(1.0f);
 
     modelMat = glm::mat4(1.0f);
     modelMat = glm::scale(modelMat, glm::vec3(0.05f));
-    ResourceManager::GenerateDefaultShader();
 
     std::cout << "GameObject Created.\n";
 };

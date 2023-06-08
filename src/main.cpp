@@ -32,8 +32,10 @@ int main() {
     ResourceManager::Initialize();
     Renderer::Initialize(g_WINDOW_WIDTH, g_WINDOW_HEIGHT);
 
+    ResourceManager::GenerateDefaultShader();
+
     World world;
-    GameObject* obj = world.createObject();
+    Apple* obj = world.spawnApple(0.0f, 0.0f);
 
 
     // gameloop

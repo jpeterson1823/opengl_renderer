@@ -27,7 +27,7 @@ void Renderer::DrawLine(Line& line) {
 void Renderer::RenderGameObject(GameObject* gobj) {
     Texture2D* t = ResourceManager::GetTexture(gobj->getGameId());
     Shader* s = ResourceManager::GetShader(gobj->getGameId());
-    glm::vec3 color = glm::vec3(1.0f);
+    glm::vec3 color = gobj->getColor();
 
     if (t != nullptr)
         t->bind();

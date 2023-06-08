@@ -13,6 +13,7 @@ public:
     static void Initialize(float scrWidth, float scrHeight);
     static void Destroy();
     static void DrawLine(Line& line);
+
     static void RenderGameObject(GameObject* gobj);
     static void RenderWorld();
     static void Update();
