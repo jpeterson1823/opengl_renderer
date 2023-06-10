@@ -50,8 +50,8 @@ void ResourceManager::DestroyResources() {
 unsigned int ResourceManager::GenerateDefaultShader() {
     // generate default shader path strings
     std::string vpath, fpath;
-    vpath = shaderDir + "/default.vert";
-    fpath = shaderDir + "/default.frag";
+    vpath = shaderDir + "/apple.vert";
+    fpath = shaderDir + "/apple.frag";
 
     // load shader and return its id
     return ResourceManager::GenerateShader(vpath.c_str(), fpath.c_str());

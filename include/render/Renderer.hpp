@@ -8,6 +8,7 @@ class Renderer {
 private:
     static Camera* camera;
     static glm::mat4 projection;
+    static glm::vec2 resolution;
 
 public:
     static void Initialize(float scrWidth, float scrHeight);

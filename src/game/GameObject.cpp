@@ -10,7 +10,7 @@ GameObject::GameObject(int id, float xpos, float ypos, float hitRadius, unsigned
     this->color = glm::vec3(1.0f);
 
     modelMat = glm::mat4(1.0f);
-    modelMat = glm::scale(modelMat, glm::vec3(0.05f));
+    //modelMat = glm::scale(modelMat, glm::vec3(0.05f));
 
     std::cout << "GameObject Created.\n";
 };

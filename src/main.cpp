@@ -118,7 +118,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 
 void processWindowInput(World& world, float deltaTime) {
     GameObject* obj = world.getObject(0);
-    float objSpeed = 20.0f * deltaTime;
+    float objSpeed = 2.0f * deltaTime;
 
     if (glfwGetKey(g_window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(g_window, true);
