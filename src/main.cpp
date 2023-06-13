@@ -137,6 +137,10 @@ void processWindowInput(World& world, float deltaTime) {
         if (glfwGetKey(g_window, GLFW_KEY_A) == GLFW_PRESS) {
             direction.x = -1.0f;
         }
+        if (glfwGetKey(g_window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+            ResourceManager::DestroyResources();
+            ResourceManager::Initialize();
+        }
 
         obj->move(direction * objSpeed);
     }

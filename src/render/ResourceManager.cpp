@@ -50,8 +50,8 @@ void ResourceManager::DestroyResources() {
 unsigned int ResourceManager::GenerateDefaultShader() {
     // generate default shader path strings
     std::string vpath, fpath;
-    vpath = shaderDir + "/apple.vert";
-    fpath = shaderDir + "/apple.frag";
+    vpath = shaderDir + "/lightning.vert";
+    fpath = shaderDir + "/lightning.frag";
 
     // load shader and return its id
     return ResourceManager::GenerateShader(vpath.c_str(), fpath.c_str());
